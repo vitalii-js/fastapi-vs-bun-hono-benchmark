@@ -1,4 +1,4 @@
-<!-- Plain text: LinkedIn posts don't render markdown. Attach img/cover.png (or all 4 charts as a carousel). ~1,650 characters. -->
+<!-- Plain text: LinkedIn posts don't render markdown. Attach img/cover.png (or all 4 charts as a carousel). ~1,660 characters. -->
 
 FastAPI vs Hono on Bun: I load-tested both against a real Postgres database. Hono won on throughput in every scenario, but not on every metric.
 
@@ -26,8 +26,15 @@ So:
 • Throughput per CPU (gateways, BFFs, high-traffic CRUD): Bun + Hono
 • ML, data, the Python ecosystem, or a DB-bound API: FastAPI is still a great choice
 
-Full write-up with charts and limitations, plus the open-source repo to rerun it yourself: https://github.com/vitalii-js/fastapi-vs-bun-hono-benchmark
+Code, raw results and charts are open source, so you can rerun it yourself. Link in the first comment 👇
 
 What stack are you running in production, and have you measured where your bottleneck actually is?
 
 #FastAPI #Bun #Hono #Python #TypeScript #Backend #Performance #PostgreSQL
+
+<!-- ===== FIRST COMMENT: post this as your own first comment right after publishing (not part of the post) ===== -->
+
+Repo with all code, raw results and charts (MIT). One command reruns the whole benchmark:
+https://github.com/vitalii-js/fastapi-vs-bun-hono-benchmark
+
+The README covers the fairness rules and limitations. If you get different numbers on your hardware, please share them here.
