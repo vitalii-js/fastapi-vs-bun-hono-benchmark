@@ -1,0 +1,99 @@
+ Container fastapi_vs_bun-postgres-1 Running 
+ Container fastapi_vs_bun-oha-1 Running 
+ Container fastapi_vs_bun-oha-1 Waiting 
+ Container fastapi_vs_bun-postgres-1 Waiting 
+ Container fastapi_vs_bun-oha-1 Healthy 
+ Container fastapi_vs_bun-postgres-1 Healthy 
+[12:52:28] round A: starting fastapi (workers=1 cpus=1)
+[12:52:31] fastapi_A_static_c50: warmup 10s
+[12:53:11] fastapi_A_static_c50 r1: 24071 rps, p99 3.93 ms, ok 100.00%
+[12:53:42] fastapi_A_static_c50 r2: 23727 rps, p99 4.06 ms, ok 100.00%
+[12:54:12] fastapi_A_static_c50 r3: 23752 rps, p99 4.05 ms, ok 100.00%
+[12:54:12] fastapi_A_static_c256: warmup 10s
+[12:54:52] fastapi_A_static_c256 r1: 22985 rps, p99 21.09 ms, ok 100.00%
+[12:55:22] fastapi_A_static_c256 r2: 22822 rps, p99 21.05 ms, ok 100.00%
+[12:55:53] fastapi_A_static_c256 r3: 22767 rps, p99 20.19 ms, ok 100.00%
+[12:55:53] fastapi_A_insert_c50: warmup 10s
+[12:56:33] fastapi_A_insert_c50 r1: 8629 rps, p99 20.82 ms, ok 100.00%, rows=258897 201s=258897
+[12:57:03] fastapi_A_insert_c50 r2: 8712 rps, p99 21.32 ms, ok 100.00%, rows=261384 201s=261384
+[12:57:34] fastapi_A_insert_c50 r3: 8151 rps, p99 24.14 ms, ok 100.00%, rows=244550 201s=244550
+[12:57:34] fastapi_A_insert_c256: warmup 10s
+[12:58:14] fastapi_A_insert_c256 r1: 8186 rps, p99 216.20 ms, ok 100.00%, rows=245773 201s=245773
+[12:58:45] fastapi_A_insert_c256 r2: 8431 rps, p99 208.21 ms, ok 100.00%, rows=253096 201s=253096
+[12:59:15] fastapi_A_insert_c256 r3: 8401 rps, p99 208.32 ms, ok 100.00%, rows=252253 201s=252253
+[12:59:15] round A: starting hono (workers=1 cpus=1)
+[12:59:19] hono_A_static_c50: warmup 10s
+[12:59:59] hono_A_static_c50 r1: 68166 rps, p99 1.42 ms, ok 100.00%
+[13:00:30] hono_A_static_c50 r2: 67689 rps, p99 1.42 ms, ok 100.00%
+[13:01:00] hono_A_static_c50 r3: 68466 rps, p99 1.40 ms, ok 100.00%
+[13:01:00] hono_A_static_c256: warmup 10s
+[13:01:40] hono_A_static_c256 r1: 64030 rps, p99 5.80 ms, ok 100.00%
+[13:02:11] hono_A_static_c256 r2: 64277 rps, p99 5.51 ms, ok 100.00%
+[13:02:41] hono_A_static_c256 r3: 64021 rps, p99 5.53 ms, ok 100.00%
+[13:02:41] hono_A_insert_c50: warmup 10s
+[13:03:22] hono_A_insert_c50 r1: 27405 rps, p99 3.02 ms, ok 100.00%, rows=822220 201s=822220
+[13:03:52] hono_A_insert_c50 r2: 27343 rps, p99 3.01 ms, ok 100.00%, rows=820391 201s=820391
+[13:04:22] hono_A_insert_c50 r3: 27198 rps, p99 3.00 ms, ok 100.00%, rows=816025 201s=816025
+[13:04:22] hono_A_insert_c256: warmup 10s
+[13:05:03] hono_A_insert_c256 r1: 29837 rps, p99 13.09 ms, ok 100.00%, rows=895393 201s=895393
+[13:05:33] hono_A_insert_c256 r2: 21707 rps, p99 25.19 ms, ok 100.00%, rows=651399 201s=651399
+[13:06:04] hono_A_insert_c256 r3: 22814 rps, p99 24.75 ms, ok 100.00%, rows=684627 201s=684627
+[13:06:04] round B: starting fastapi (workers=4 cpus=4)
+[13:06:07] fastapi_B_static_c50: warmup 10s
+[13:06:48] fastapi_B_static_c50 r1: 84635 rps, p99 1.12 ms, ok 100.00%
+[13:07:19] fastapi_B_static_c50 r2: 83484 rps, p99 1.15 ms, ok 100.00%
+[13:07:49] fastapi_B_static_c50 r3: 83641 rps, p99 1.32 ms, ok 100.00%
+[13:07:49] fastapi_B_static_c256: warmup 10s
+[13:08:30] fastapi_B_static_c256 r1: 85831 rps, p99 6.06 ms, ok 100.00%
+[13:09:00] fastapi_B_static_c256 r2: 84847 rps, p99 6.29 ms, ok 100.00%
+[13:09:30] fastapi_B_static_c256 r3: 84563 rps, p99 6.51 ms, ok 100.00%
+[13:09:30] fastapi_B_insert_c50: warmup 10s
+[13:10:11] fastapi_B_insert_c50 r1: 21754 rps, p99 5.11 ms, ok 100.00%, rows=652705 201s=652705
+[13:10:41] fastapi_B_insert_c50 r2: 22636 rps, p99 4.71 ms, ok 100.00%, rows=679150 201s=679150
+[13:11:12] fastapi_B_insert_c50 r3: 23063 rps, p99 4.63 ms, ok 100.00%, rows=691953 201s=691953
+[13:11:12] fastapi_B_insert_c256: warmup 10s
+[13:11:52] fastapi_B_insert_c256 r1: 22084 rps, p99 36.91 ms, ok 100.00%, rows=662877 201s=662877
+[13:12:23] fastapi_B_insert_c256 r2: 22469 rps, p99 32.82 ms, ok 100.00%, rows=674345 201s=674345
+[13:12:53] fastapi_B_insert_c256 r3: 22335 rps, p99 31.69 ms, ok 100.00%, rows=670330 201s=670330
+[13:12:54] round B: starting hono (workers=4 cpus=4)
+[13:12:57] hono_B_static_c50: warmup 10s
+[13:13:38] hono_B_static_c50 r1: 184129 rps, p99 0.79 ms, ok 100.00%
+[13:14:09] hono_B_static_c50 r2: 185225 rps, p99 0.78 ms, ok 100.00%
+[13:14:40] hono_B_static_c50 r3: 185946 rps, p99 0.77 ms, ok 100.00%
+[13:14:40] hono_B_static_c256: warmup 10s
+ Container fastapi_vs_bun-postgres-1 Running 
+ Container fastapi_vs_bun-oha-1 Running 
+ Container fastapi_vs_bun-postgres-1 Waiting 
+ Container fastapi_vs_bun-oha-1 Waiting 
+ Container fastapi_vs_bun-oha-1 Healthy 
+ Container fastapi_vs_bun-postgres-1 Healthy 
+[13:15:46] round B: starting hono (workers=4 cpus=4)
+[13:15:49] hono_B_static_c256: warmup 10s
+ Container fastapi_vs_bun-postgres-1 Running 
+ Container fastapi_vs_bun-oha-1 Running 
+ Container fastapi_vs_bun-postgres-1 Waiting 
+ Container fastapi_vs_bun-oha-1 Waiting 
+ Container fastapi_vs_bun-oha-1 Healthy 
+ Container fastapi_vs_bun-postgres-1 Healthy 
+[13:24:19] round B: starting hono (workers=4 cpus=4)
+[13:24:22] hono_B_static_c256: warmup 10s
+[13:25:07] hono_B_static_c256 r1: 217103 rps, p99 2.67 ms, ok 100.00%
+[13:25:42] hono_B_static_c256 r2: 214385 rps, p99 2.69 ms, ok 100.00%
+[13:26:17] hono_B_static_c256 r3: 212827 rps, p99 2.98 ms, ok 100.00%
+[13:26:17] done. Now run: uv run analysis/report.py
+ Container fastapi_vs_bun-postgres-1 Running 
+ Container fastapi_vs_bun-oha-1 Running 
+ Container fastapi_vs_bun-postgres-1 Waiting 
+ Container fastapi_vs_bun-oha-1 Waiting 
+ Container fastapi_vs_bun-oha-1 Healthy 
+ Container fastapi_vs_bun-postgres-1 Healthy 
+[13:26:18] round B: starting hono (workers=4 cpus=4)
+[13:26:22] hono_B_insert_c50: warmup 10s
+[13:27:02] hono_B_insert_c50 r1: 45373 rps, p99 2.16 ms, ok 100.00%, rows=1361333 201s=1361333
+[13:27:33] hono_B_insert_c50 r2: 40459 rps, p99 2.43 ms, ok 100.00%, rows=1213904 201s=1213904
+[13:28:03] hono_B_insert_c50 r3: 39112 rps, p99 7.10 ms, ok 100.00%, rows=1173496 201s=1173496
+[13:28:03] hono_B_insert_c256: warmup 10s
+[13:28:44] hono_B_insert_c256 r1: 27692 rps, p99 30.80 ms, ok 100.00%, rows=831005 201s=831005
+[13:29:14] hono_B_insert_c256 r2: 33721 rps, p99 25.04 ms, ok 100.00%, rows=1011866 201s=1011866
+[13:29:45] hono_B_insert_c256 r3: 29914 rps, p99 30.32 ms, ok 100.00%, rows=897856 201s=897856
+[13:29:45] done. Now run: uv run analysis/report.py

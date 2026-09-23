@@ -1,0 +1,9 @@
+FROM debian:bookworm-slim
+ARG OHA_VERSION=v1.16.0
+ARG TARGETARCH
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates \
+ && curl -fsSL -o /usr/local/bin/oha \
+    "https://github.com/hatoo/oha/releases/download/${OHA_VERSION}/oha-linux-${TARGETARCH}" \
+ && chmod +x /usr/local/bin/oha && rm -rf /var/lib/apt/lists/*
+WORKDIR /bench
+CMD ["sleep", "infinity"]

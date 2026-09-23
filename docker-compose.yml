@@ -1,0 +1,62 @@
+# Resource limits come from env vars so bench/run.sh can switch between
+# Round A (1 CPU, 1 process) and Round B (4 CPU, 4 processes).
+x-app: &app
+  environment:
+    DATABASE_URL: postgres://bench:bench@postgres:5432/bench
+    WORKERS: ${WORKERS:-1}
+    DB_POOL_TOTAL: ${DB_POOL_TOTAL:-20}
+  depends_on:
+    postgres:
+      condition: service_healthy
+  deploy:
+    resources:
+      limits:
+        cpus: "${APP_CPUS:-1}"
+        memory: ${APP_MEM:-1g}
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: bench
+      POSTGRES_PASSWORD: bench
+      POSTGRES_DB: bench
+    command: ["postgres", "-c", "max_connections=100", "-c", "shared_buffers=512MB", "-c", "synchronous_commit=on"]
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bench -d bench"]
+      interval: 2s
+      retries: 30
+    deploy:
+      resources:
+        limits: { cpus: "4", memory: 2g }
+
+  fastapi:
+    <<: *app
+    build: { context: ., dockerfile: fastapi_app/Dockerfile }
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 2s
+      retries: 30
+
+  hono:
+    <<: *app
+    build: { context: ., dockerfile: hono_app/Dockerfile }
+    healthcheck:
+      test: ["CMD", "bun", "-e", "await fetch('http://localhost:3000/health')"]
+      interval: 2s
+      retries: 30
+
+  oha:
+    build: { context: ., dockerfile: bench/Dockerfile.oha }
+    volumes:
+      - ./bench:/bench
+      - ./results:/results
+    deploy:
+      resources:
+        limits: { cpus: "6", memory: 1g }
+
+volumes:
+  pgdata:
