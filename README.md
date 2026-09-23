@@ -21,6 +21,8 @@ Both are load-tested with [oha](https://github.com/hatoo/oha) under identical Do
 
 Full table with p50/p95/p99, CPU and memory: [`results/summary.md`](results/summary.md). Charts: [`results/charts/`](results/charts).
 
+📝 Full write-up with analysis and caveats: [`docs/article.md`](docs/article.md)
+
 ## Fairness rules
 
 | | FastAPI | Hono / Bun |
@@ -58,7 +60,7 @@ db/init.sql    items table
 bench/         oha image, run.sh, POST payload
 analysis/      report.py -> summary table + charts
 results/       raw oha JSON, docker stats samples, summary
-article/       LinkedIn article, short post, images
+docs/          write-up (docs/article.md) and its chart images
 ```
 
 ## Caveats

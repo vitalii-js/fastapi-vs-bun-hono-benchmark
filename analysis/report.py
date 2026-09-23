@@ -18,7 +18,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "results" / "raw"
 CHARTS = ROOT / "results" / "charts"
-ARTICLE_IMG = ROOT / "article" / "img"
+ARTICLE_IMG = ROOT / "docs" / "img"
 
 # Validated categorical slots 1-2 (light surface), see dataviz reference palette.
 COLORS = {"fastapi": "#2a78d6", "hono": "#eb6834"}
